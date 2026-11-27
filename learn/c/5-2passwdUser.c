@@ -45,7 +45,6 @@ void passwd()
     printf("%s\n", characters);
 }
 
-
 void usr()
 {
     char usernameP1[32];
@@ -74,7 +73,7 @@ void usr()
 
 int main()
 {   
-    //usr();
+    usr();
     passwd();
 
     return 0;
