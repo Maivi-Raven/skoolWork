@@ -11,20 +11,23 @@ void passwd()
     char letters[53] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     char special[33] = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
     
-    char yn;
-    printf("Do you want special characters? [y/N]");
-    fgets(yn, sizeof(yn), stdin);
+    char yn[2];
+    printf("Do you want special characters? [Y/n]");
+    if (fgets(yn, sizeof yn, stdin) == NULL) 
+    {
+    return;
+    }
 
     char characters[15];
     for (int i = 0; i < 8; i++)
     {
-        characters[i] = letters[rand() % 53];
+        characters[i] = letters[rand() % (sizeof letters - 1)];
     }
-    if (yn == 'Y' || yn == 'y')
+    if (yn[0] == 'Y' || yn[0] == 'y' || yn[0] == '\n')
     {
         for (int i = 0; i < 4; i++)
         {
-            characters[i+8] = special[rand() % 33];
+            characters[i+8] = special[rand() % (sizeof special - 1)];
         }
         for (int i = 0; i < 2; i++)
         {
@@ -63,23 +66,15 @@ void usr()
     {
         usernameP2[i] = tolower(usernameP2[i]);
     }   
-    
-    char user[6];
-    for (int i = 0; i < 3; i++)
-    {
-        user[i] = usernameP1[i];
-    }
-    for (int i = 3; i < 6; i++)
-    {
-        user[i] = usernameP2[i-3];
-    }
 
+    char user[7];
+    snprintf(user, sizeof user, "%.3s%.3s", usernameP1, usernameP2);
     printf("%s\n", user);
 }
 
 int main()
 {   
-    usr();
+    //usr();
     passwd();
 
     return 0;
