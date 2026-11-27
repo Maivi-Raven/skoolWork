@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// c dose not have dictionarys but structs can achieve a similer result
 struct Product 
 {
     char *name;
