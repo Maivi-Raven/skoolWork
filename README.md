@@ -1,5 +1,5 @@
 # skoolWork
-### This reposetor is a plase to share my skool projekts with my teatcher.
+**This reposetor is a plase to share my skool projekts with my teatcher.**
 
 ## Navigation
 Reguler exercises are found under `/lern`, where the subfolders are named appropriately based on with code language used within.
